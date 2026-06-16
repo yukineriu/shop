@@ -102,6 +102,13 @@ a {
   transform: scale(1.03);
 }
 
+.header-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .header-snowflake {
   font-size: 1.3rem;
   color: var(--blue-300);
