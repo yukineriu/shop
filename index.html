@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雪音りう オリジンストア｜公式グッズ通販</title>
+  <meta name="description" content="雪音りう公式オリジンストア。オリジナル缶バッジ、Tシャツ、アクリルボードなどのグッズをGoogleフォームでご注文いただけます。JPYC・銀行振込対応。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#" class="header-home" id="header-home">
+        <span class="header-snowflake">❄</span>
+        <span class="header-logo-text">Yukineriu</span>
+        <span class="header-sub">雪音りう</span>
+      </a>
+      <nav class="header-nav">
+        <a href="#" class="header-nav-btn home-btn" id="nav-home">
+          <span class="nav-icon">🏠</span> 雪音りう HOME
+        </a>
+      </nav>
+      <a href="https://docs.google.com/forms/" target="_blank" rel="noopener" class="header-cta"
+        id="header-google-form">
+        <span class="nav-icon">📝</span> Googleフォームで注文
+      </a>
+    </div>
+  </header>
+
+  <!-- ========== HERO / TITLE SECTION ========== -->
+  <section class="hero-section" id="hero-section">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content">
+      <img src="orizinstore-logo.png" alt="雪音りう オリジンストア" class="hero-logo" id="hero-logo">
+    </div>
+  </section>
+
+  <!-- ========== PRODUCTS SECTION ========== -->
+  <section class="products-section" id="products-section">
+    <h2 class="section-title" id="products-title">
+      <span class="section-title-icon">✨</span> グッズ一覧 <span class="section-title-icon">✨</span>
+    </h2>
+    <div class="products-grid" id="products-grid">
+      <!-- Product cards will be injected by JS -->
+    </div>
+  </section>
+
+  <!-- ========== PAYMENT SECTION ========== -->
+  <section class="payment-section" id="payment-section">
+    <div class="payment-container">
+
+      <!-- LEFT: Payment Methods -->
+      <div class="payment-methods" id="payment-methods">
+        <h3 class="payment-title">
+          <span class="payment-title-icon">❄</span> お支払い方法
+        </h3>
+        <div class="payment-tabs">
+          <button class="payment-tab active" data-tab="jpyc" id="tab-jpyc">
+            <span class="tab-icon">💰</span> JPYC <span class="tab-recommend">おすすめ</span>
+          </button>
+          <button class="payment-tab" data-tab="bank" id="tab-bank">
+            <span class="tab-icon">🏦</span> 銀行振込
+          </button>
+        </div>
+
+        <div class="payment-tab-content active" id="content-jpyc">
+          <p class="payment-label">JPYC お支払い先アドレス</p>
+          <div class="address-box" id="jpyc-address-box">
+            <code class="address-text" id="jpyc-address">0xb8B678aB632C725Cc0C6FC62dF1749CCe51F1507</code>
+            <button class="copy-btn" id="copy-jpyc-btn" onclick="copyAddress()">
+              <span class="copy-icon">📋</span> コピー
+            </button>
+          </div>
+          <p class="payment-note">
+            💡
+            ETH,POLチェーンのみ対応になります。またトランザクションが確認できない限り発送は出来かねます。GOX等のトラブルについて弊サイトは一切責任は負いかねるとともに、弊社の過失を除き一切の返金対応は出来かねますので十分ご注意ください。
+
+          </p>
+        </div>
+
+        <div class="payment-tab-content" id="content-bank">
+          <p class="payment-label">銀行振込先</p>
+          <div class="bank-info">
+            <table class="bank-table">
+              <tr>
+                <th>銀行名</th>
+                <td>ゆうちょ銀行</td>
+              </tr>
+              <tr>
+                <th>店番</th>
+                <td>018</td>
+              </tr>
+              <tr>
+                <th>種別</th>
+                <td>普通</td>
+              </tr>
+              <tr>
+                <th>口座番号</th>
+                <td>９２４９９０３</td>
+              </tr>
+              <tr>
+                <th>口座名義</th>
+                <td>ｻｼﾞｶﾌｪ</td>
+              </tr>
+            </table>
+          </div>
+          <p class="payment-note">
+            💡 お振込みの際は、ご依頼人名にお名前または注文番号をご記載ください。
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Important Notice -->
+      <div class="payment-notice" id="payment-notice">
+        <div class="notice-card warning">
+          <h4 class="notice-title">
+            <span class="notice-icon">⚠️</span> 必ず先にGoogleフォームを送信してください。
+          </h4>
+          <p class="notice-text">
+            フォーム送信後に、在庫確保とお支払いのご案内をお送りします。その後にご入金をお願いいたします。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== ORDER FLOW SECTION ========== -->
+  <section class="flow-section" id="flow-section">
+    <h3 class="flow-title">
+      <span class="flow-title-icon">✨</span> ご注文からお届けまでの流れ <span class="flow-title-icon">✨</span>
+    </h3>
+    <div class="flow-steps" id="flow-steps">
+      <div class="flow-step" id="flow-step-1">
+        <div class="step-number">1</div>
+        <div class="step-icon">📝</div>
+        <h4 class="step-title">フォーム送信</h4>
+        <p class="step-desc">右上の「Googleフォームで注文」から必要事項を入力して送信。</p>
+      </div>
+      <div class="flow-arrow">
+        <span>›</span>
+      </div>
+      <div class="flow-step" id="flow-step-2">
+        <div class="step-number">2</div>
+        <div class="step-icon">💳</div>
+        <h4 class="step-title">入金確認</h4>
+        <p class="step-desc">ご案内の内容に沿ってご入金いただき、入金確認を行います。</p>
+      </div>
+      <div class="flow-arrow">
+        <span>›</span>
+      </div>
+      <div class="flow-step" id="flow-step-3">
+        <div class="step-number">3</div>
+        <div class="step-icon">🚚</div>
+        <h4 class="step-title">発送</h4>
+        <p class="step-desc">入金確認後、梱包・配送確認・発送！お手元にお届けします♪</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" id="site-footer">
+    <p>&copy; 2025 yukineriu project. All rights reserved.</p>
+  </footer>
+
+  <!-- ========== MODAL ========== -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content" id="modal-content">
+      <button class="modal-close" id="modal-close" onclick="closeModal()">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Dynamically filled -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Copied Toast -->
+  <div class="copy-toast" id="copy-toast">コピーしました！</div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
