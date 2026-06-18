@@ -9,22 +9,27 @@ const products = [
   {
     id: 'acrylic-board',
     name: 'オリジナルアクリルボード',
-    price: '¥3,500',
-    originalPrice: null,
+    price: '¥3,200',
+    originalPrice: '¥3,500',
     image: 'riusta-pr.png-noplice.png',
+    images: ['riusta-pr.png-noplice.png', 'asi.png'],
     badge: 'New!',
     badgeType: 'new',
+    badge2: '8%OFF',
+    badge2Type: 'sale',
     description: '夏の思い出を、いつでもそばに。高透明度クリア仕様のオリジナルアクリルボード。鮮やかで美しい高精細印刷。約190mm×約190mmサイズ。デスクや棚にぴったり！プレゼントにもおすすめ♪ ※スタンド部分は金属ポール2本（小）によるスタンドです ※画像はイメージです',
     tags: ['約190mm×190mm', 'アクリルボード', 'クリア仕様', 'JPYC対応'],
   },
   {
     id: 'monster-tee',
     name: 'RIURIU MONSTER TEE',
-    price: '¥4,200',
-    originalPrice: '¥5,980',
-    image: 'riu-t-pr.png3.png',
+    price: '¥4,600',
+    originalPrice: '¥4,900',
+    image: 'riut.png',
     badge: 'New!',
     badgeType: 'new',
+    badge2: '6%OFF',
+    badge2Type: 'sale',
     description: '遊び心と個性をまとう一枚。フロントに大胆なモンスタープリント、袖にアクセントの雪音りうシンボル。国内製造で快適な着心地、ユニセックスサイズ展開（M/L/XL）。しっかりした高品質ボディ、洗濯OKでデイリーに活躍！りうガっと現地特大SALE！ ※画像はイメージです',
     tags: ['Tシャツ', 'M/L/XL', 'ユニセックス', 'SALE', 'JPYC対応'],
   },
@@ -103,14 +108,20 @@ function renderProducts() {
       const badgeClass = product.badgeType === 'new' ? 'badge-new' :
                          product.badgeType === 'sale' ? 'badge-sale' :
                          product.badgeType === 'set' ? 'badge-set' : '';
-      badgeHTML = `<span class="product-card-badge ${badgeClass}">${product.badge}</span>`;
+      badgeHTML += `<span class="product-card-badge ${badgeClass}">${product.badge}</span>`;
+    }
+    if (product.badge2) {
+      const badge2Class = product.badge2Type === 'new' ? 'badge-new' :
+                          product.badge2Type === 'sale' ? 'badge-sale' :
+                          product.badge2Type === 'set' ? 'badge-set' : '';
+      badgeHTML += `<span class="product-card-badge badge-second ${badge2Class}">${product.badge2}</span>`;
     }
 
     let priceHTML = '';
     if (product.originalPrice) {
-      priceHTML = `<span class="price-original">${product.originalPrice}</span>${product.price}`;
+      priceHTML = `<span class="price-original">${product.originalPrice}</span>${product.price}<span class="price-tax">（税込）</span>`;
     } else {
-      priceHTML = product.price;
+      priceHTML = `${product.price}<span class="price-tax">（税込）</span>`;
     }
 
     card.innerHTML = `
@@ -160,9 +171,9 @@ function openModal(product) {
 
   let priceHTML = '';
   if (product.originalPrice) {
-    priceHTML = `<span class="price-original">${product.originalPrice}</span>${product.price}`;
+    priceHTML = `<span class="price-original">${product.originalPrice}</span>${product.price}<span class="price-tax">（税込）</span>`;
   } else {
-    priceHTML = product.price;
+    priceHTML = `${product.price}<span class="price-tax">（税込）</span>`;
   }
 
   let tagsHTML = product.tags.map(tag => {
@@ -170,8 +181,36 @@ function openModal(product) {
     return `<span class="${cls}">${tag}</span>`;
   }).join('');
 
+  // Build image section: gallery if multiple images, single image otherwise
+  const images = product.images || [product.image];
+  let imageHTML = '';
+
+  if (images.length > 1) {
+    const thumbnailsHTML = images.map((img, i) =>
+      `<button class="gallery-thumb${i === 0 ? ' active' : ''}" data-index="${i}" onclick="switchGalleryImage(${i})">
+        <img src="${img}" alt="${product.name} 画像${i + 1}">
+      </button>`
+    ).join('');
+
+    imageHTML = `
+      <div class="modal-gallery">
+        <div class="gallery-main-wrap">
+          <img src="${images[0]}" alt="${product.name}" class="modal-image" id="gallery-main-img">
+          <div class="gallery-counter">
+            <span id="gallery-current">1</span> / ${images.length}
+          </div>
+        </div>
+        <div class="gallery-thumbs" id="gallery-thumbs">
+          ${thumbnailsHTML}
+        </div>
+      </div>
+    `;
+  } else {
+    imageHTML = `<img src="${product.image}" alt="${product.name}" class="modal-image">`;
+  }
+
   body.innerHTML = `
-    <img src="${product.image}" alt="${product.name}" class="modal-image">
+    ${imageHTML}
     <div class="modal-info">
       <div class="modal-name">${product.name}</div>
       <div class="modal-price">${priceHTML}</div>
@@ -186,6 +225,35 @@ function openModal(product) {
 
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+}
+
+// ---- GALLERY IMAGE SWITCH ----
+function switchGalleryImage(index) {
+  const mainImg = document.getElementById('gallery-main-img');
+  const thumbs = document.querySelectorAll('.gallery-thumb');
+  const counter = document.getElementById('gallery-current');
+
+  if (!mainImg) return;
+
+  // Get new image src from the thumbnail
+  const newSrc = thumbs[index].querySelector('img').src;
+
+  // Fade transition
+  mainImg.style.opacity = '0';
+  mainImg.style.transform = 'scale(0.97)';
+
+  setTimeout(() => {
+    mainImg.src = newSrc;
+    mainImg.style.opacity = '1';
+    mainImg.style.transform = 'scale(1)';
+  }, 180);
+
+  // Update active thumb
+  thumbs.forEach(t => t.classList.remove('active'));
+  thumbs[index].classList.add('active');
+
+  // Update counter
+  if (counter) counter.textContent = index + 1;
 }
 
 function closeModal() {
