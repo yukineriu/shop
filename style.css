@@ -376,21 +376,60 @@ a {
   font-size: 1.1rem;
   font-weight: 800;
   color: var(--pink-500);
+  margin-top: 4px;
 }
 
-.product-card-price .price-original {
-  font-size: 0.8rem;
-  color: var(--gray-600);
-  text-decoration: line-through;
-  margin-right: 6px;
-  font-weight: 500;
+.price-jpyc-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
 }
 
-.price-tax {
+.price-jpyc-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #2e7d32;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.price-jpyc-value {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2e7d32;
+}
+
+.price-normal-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.price-normal-label {
   font-size: 0.65rem;
   font-weight: 500;
   color: var(--gray-600);
+}
+
+.price-normal-value {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.price-discount {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #d32f2f;
   margin-left: 2px;
+}
+
+.price-tax {
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: var(--gray-600);
 }
 
 .product-card-desc-short {
@@ -412,6 +451,70 @@ a {
   font-size: 0.72rem;
   color: var(--lavender);
   font-weight: 500;
+}
+/* ---------- SHIPPING BANNER ---------- */
+.shipping-banner {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 30%, #fff9c4 70%, #ffe0b2 100%);
+  padding: 16px 24px;
+  border-top: 2px solid rgba(46, 125, 50, 0.15);
+  border-bottom: 2px solid rgba(46, 125, 50, 0.15);
+}
+
+.shipping-banner-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.shipping-icon {
+  font-size: 1.6rem;
+  animation: shipping-bounce 2s ease-in-out infinite;
+}
+
+@keyframes shipping-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+.shipping-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.shipping-main {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.shipping-main strong {
+  font-weight: 800;
+  color: #2e7d32;
+}
+
+.shipping-divider {
+  color: var(--gray-300);
+  font-size: 0.9rem;
+}
+
+.shipping-free {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--pink-500);
+}
+
+.shipping-free strong {
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--pink-400), #ff758c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ---------- PAYMENT SECTION ---------- */
@@ -715,8 +818,17 @@ a {
 }
 
 .step-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 130px;
+  margin-bottom: 16px;
+}
+
+.step-icon-img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .step-title {
@@ -845,18 +957,11 @@ a {
 }
 
 .modal-price {
-  font-size: 1.3rem;
-  font-weight: 800;
-  color: var(--pink-500);
   margin-bottom: 14px;
 }
 
-.modal-price .price-original {
-  font-size: 0.85rem;
-  color: var(--gray-600);
-  text-decoration: line-through;
-  margin-right: 8px;
-  font-weight: 500;
+.modal-jpyc-row .price-jpyc-value {
+  font-size: 1.35rem;
 }
 
 .modal-desc {
@@ -1017,6 +1122,151 @@ a {
 .copy-toast.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* ---------- JPYC ICONS ---------- */
+.tab-jpyc-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.label-jpyc-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+/* ---------- JPYC QR SHOW BUTTON ---------- */
+.qr-show-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--pink-300);
+  background: var(--pink-100);
+  color: var(--pink-500);
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+
+.qr-show-btn:hover {
+  background: var(--pink-200);
+  transform: scale(1.02);
+}
+
+.qr-show-btn:active {
+  transform: scale(0.98);
+}
+
+/* ---------- QR CODE OVERLAY ---------- */
+.qr-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: modalBgIn 0.3s ease;
+}
+
+.qr-overlay.active {
+  display: flex;
+}
+
+.qr-overlay-content {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  max-width: 380px;
+  width: 100%;
+  padding: 32px 24px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: modalSlideIn 0.35s ease;
+}
+
+.qr-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-100);
+  font-size: 1.2rem;
+  color: var(--gray-700);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-close-btn:hover {
+  background: var(--pink-200);
+  color: var(--dark);
+  transform: rotate(90deg);
+}
+
+.qr-jpyc-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
+
+.qr-title {
+  font-family: var(--font-accent);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 16px;
+}
+
+.qr-image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: 8px;
+  background: #ffffff;
+}
+
+.qr-address {
+  font-size: 0.72rem;
+  font-family: 'Courier New', monospace;
+  color: var(--gray-800);
+  word-break: break-all;
+  line-height: 1.5;
+  background: var(--gray-50);
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  margin-bottom: 12px;
+}
+
+.qr-note {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-600);
 }
 
 /* ---------- RESPONSIVE ---------- */

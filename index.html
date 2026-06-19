@@ -47,6 +47,18 @@
     </div>
   </section>
 
+  <!-- ========== SHIPPING BANNER ========== -->
+  <div class="shipping-banner" id="shipping-banner">
+    <div class="shipping-banner-inner">
+      <span class="shipping-icon">🚚</span>
+      <div class="shipping-text">
+        <span class="shipping-main">送料 一律 全国<strong>800円</strong></span>
+        <span class="shipping-divider">｜</span>
+        <span class="shipping-free">2,000円以上で<strong>送料無料</strong>♪</span>
+      </div>
+    </div>
+  </div>
+
   <!-- ========== PAYMENT SECTION ========== -->
   <section class="payment-section" id="payment-section">
     <div class="payment-container">
@@ -58,7 +70,8 @@
         </h3>
         <div class="payment-tabs">
           <button class="payment-tab active" data-tab="jpyc" id="tab-jpyc">
-            <span class="tab-icon">💰</span> JPYC <span class="tab-recommend">おすすめ</span>
+            <img src="JPYCSpSymbol.eecda84554bec0b9d27716052a28a8dd.svg" alt="JPYC" class="tab-jpyc-icon"> JPYC <span
+              class="tab-recommend">おすすめ</span>
           </button>
           <button class="payment-tab" data-tab="bank" id="tab-bank">
             <span class="tab-icon">🏦</span> 銀行振込
@@ -66,16 +79,22 @@
         </div>
 
         <div class="payment-tab-content active" id="content-jpyc">
-          <p class="payment-label">JPYC お支払い先アドレス</p>
+          <p class="payment-label">
+            <img src="JPYCSpSymbol.eecda84554bec0b9d27716052a28a8dd.svg" alt="JPYC" class="label-jpyc-icon">
+            JPYC お支払い先アドレス（POLチェーン）
+          </p>
           <div class="address-box" id="jpyc-address-box">
-            <code class="address-text" id="jpyc-address">0xb8B678aB632C725Cc0C6FC62dF1749CCe51F1507</code>
+            <code class="address-text" id="jpyc-address">0xfD90c58C147B7050490BC34D6E5Bad71409cA575</code>
             <button class="copy-btn" id="copy-jpyc-btn" onclick="copyAddress()">
               <span class="copy-icon">📋</span> コピー
             </button>
           </div>
+          <button class="qr-show-btn" id="qr-show-btn" onclick="showQR()">
+            📱 QRコードを表示
+          </button>
           <p class="payment-note">
             💡
-            ETH,POLチェーンのみ対応になります。またトランザクションが確認できない限り発送は出来かねます。GOX等のトラブルについて弊サイトは一切責任は負いかねるとともに、弊社の過失を除き一切の返金対応は出来かねますので十分ご注意ください。
+            POLチェーンのみ対応になります。またトランザクションが確認できない限り発送は出来かねます。GOX等のトラブルについて弊サイトは一切責任は負いかねるとともに、弊社の過失を除き一切の返金対応は出来かねますので十分ご注意ください。
 
           </p>
         </div>
@@ -120,7 +139,7 @@
             <span class="notice-icon">⚠️</span> 必ず先にGoogleフォームを送信してください。
           </h4>
           <p class="notice-text">
-            フォーム送信後に、在庫確保とお支払いのご案内をお送りします。その後にご入金をお願いいたします。
+            フォーム送信後に、在庫確保とお支払いのご案内を<br>お送りします。その後にご入金をお願いいたします。
           </p>
         </div>
       </div>
@@ -136,7 +155,7 @@
     <div class="flow-steps" id="flow-steps">
       <div class="flow-step" id="flow-step-1">
         <div class="step-number">1</div>
-        <div class="step-icon">📝</div>
+        <div class="step-icon"><img src="sozai/1.png" alt="フォーム送信" class="step-icon-img"></div>
         <h4 class="step-title">フォーム送信</h4>
         <p class="step-desc">右上の「Googleフォームで注文」から必要事項を入力して送信。</p>
       </div>
@@ -145,16 +164,16 @@
       </div>
       <div class="flow-step" id="flow-step-2">
         <div class="step-number">2</div>
-        <div class="step-icon">💳</div>
+        <div class="step-icon"><img src="sozai/2.png" alt="入金確認" class="step-icon-img"></div>
         <h4 class="step-title">入金確認</h4>
-        <p class="step-desc">ご案内の内容に沿ってご入金いただき、入金確認を行います。</p>
+        <p class="step-desc">ご登録のメールアドレスにお送りする代金をJPYCまたは銀行振込で入金。</p>
       </div>
       <div class="flow-arrow">
         <span>›</span>
       </div>
       <div class="flow-step" id="flow-step-3">
         <div class="step-number">3</div>
-        <div class="step-icon">🚚</div>
+        <div class="step-icon"><img src="sozai/3.png" alt="発送" class="step-icon-img"></div>
         <h4 class="step-title">発送</h4>
         <p class="step-desc">入金確認後、梱包・配送確認・発送！お手元にお届けします♪</p>
       </div>
@@ -179,7 +198,19 @@
   <!-- Copied Toast -->
   <div class="copy-toast" id="copy-toast">コピーしました！</div>
 
-  <script src="script.js"></script>
+  <!-- QR Code Overlay -->
+  <div class="qr-overlay" id="qr-overlay" onclick="closeQR(event)">
+    <div class="qr-overlay-content">
+      <button class="qr-close-btn" onclick="closeQR()">&times;</button>
+      <img src="JPYCSpSymbol.eecda84554bec0b9d27716052a28a8dd.svg" alt="JPYC" class="qr-jpyc-icon">
+      <p class="qr-title">JPYC お支払い先QR</p>
+      <img src="jpyu-yukinep-qr.png" alt="QRコード" class="qr-image">
+      <p class="qr-address">0xfD90c58C147B7050490BC34D6E5Bad71409cA575</p>
+      <p class="qr-note">POLチェーンのみ対応</p>
+    </div>
+  </div>
+
+  <script src="script.js?v=16percent"></script>
 </body>
 
 </html>

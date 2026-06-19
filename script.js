@@ -9,13 +9,14 @@ const products = [
   {
     id: 'acrylic-board',
     name: 'オリジナルアクリルボード',
-    price: '¥3,200',
-    originalPrice: '¥3,500',
+    jpycPrice: '¥3,000',
+    normalPrice: '¥3,500',
+    discount: '14%',
     image: 'riusta-pr.png-noplice.png',
     images: ['riusta-pr.png-noplice.png', 'asi.png'],
     badge: 'New!',
     badgeType: 'new',
-    badge2: '8%OFF',
+    badge2: 'JPYCで14%おトク',
     badge2Type: 'sale',
     description: '夏の思い出を、いつでもそばに。高透明度クリア仕様のオリジナルアクリルボード。鮮やかで美しい高精細印刷。約190mm×約190mmサイズ。デスクや棚にぴったり！プレゼントにもおすすめ♪ ※スタンド部分は金属ポール2本（小）によるスタンドです ※画像はイメージです',
     tags: ['約190mm×190mm', 'アクリルボード', 'クリア仕様', 'JPYC対応'],
@@ -23,68 +24,84 @@ const products = [
   {
     id: 'monster-tee',
     name: 'RIURIU MONSTER TEE',
-    price: '¥4,600',
-    originalPrice: '¥4,900',
+    jpycPrice: '¥4,200',
+    normalPrice: '¥5,000',
+    discount: '16%',
     image: 'riut.png',
     badge: 'New!',
     badgeType: 'new',
-    badge2: '6%OFF',
+    badge2: 'JPYCで16%おトク',
     badge2Type: 'sale',
-    description: '遊び心と個性をまとう一枚。フロントに大胆なモンスタープリント、袖にアクセントの雪音りうシンボル。国内製造で快適な着心地、ユニセックスサイズ展開（M/L/XL）。しっかりした高品質ボディ、洗濯OKでデイリーに活躍！りうガっと現地特大SALE！ ※画像はイメージです',
-    tags: ['Tシャツ', 'M/L/XL', 'ユニセックス', 'SALE', 'JPYC対応'],
+    description: '遊び心と個性をまとう一枚。フロントに大胆なモンスタープリント、袖にアクセントの雪音りうシンボル。国内製造で快適な着心地、ユニセックスサイズ展開（M/L/XL）。しっかりした高品質ボディ、洗濯 OKでデイリーに活躍！ ※画像はイメージです',
+    tags: ['Tシャツ', 'M/L/XL', 'ユニセックス', 'JPYC対応'],
   },
   {
     id: 'badge-cross',
     name: 'オリジナル缶バッジ（ヘアピン）',
-    price: '¥500',
-    originalPrice: null,
+    jpycPrice: '¥450',
+    normalPrice: '¥500',
+    discount: '10%',
     image: '23685066-7354-44a7-a578-e962c467dd0d.png',
     badge: 'New!',
     badgeType: 'new',
+    badge2: 'JPYCで10%おトク',
+    badge2Type: 'sale',
     description: '雪音りうプロジェクトのオリジナル缶バッジ。ヘアピンデザイン。44mmサイズで推し活やコレクションにぴったり！カバンや小物のワンポイントにも◎ ※画像はイメージです',
     tags: ['44mm', '缶バッジ', 'JPYC対応'],
   },
   {
     id: 'badge-monster',
     name: 'オリジナル缶バッジ（ミミックワイバーン）',
-    price: '¥500',
-    originalPrice: null,
+    jpycPrice: '¥450',
+    normalPrice: '¥500',
+    discount: '10%',
     image: '5f8f1e85-affd-4645-b3b1-127a477f05ae.png',
     badge: 'New!',
     badgeType: 'new',
+    badge2: 'JPYCで10%おトク',
+    badge2Type: 'sale',
     description: '雪音りうプロジェクトのオリジナル缶バッジ。かわいいミミックワイバーンデザイン。イラストがふちまで綺麗にプリント！推し活やコレクションにぴったり♡ ※画像はイメージです',
     tags: ['44mm', '缶バッジ', 'JPYC対応'],
   },
   {
     id: 'badge-rabbit',
     name: 'オリジナル缶バッジ（ゆきもち）',
-    price: '¥500',
-    originalPrice: null,
+    jpycPrice: '¥450',
+    normalPrice: '¥500',
+    discount: '10%',
     image: '9ba13003-d362-40d0-9bfa-6af6d00d11f7.png',
     badge: 'New!',
     badgeType: 'new',
+    badge2: 'JPYCで10%おトク',
+    badge2Type: 'sale',
     description: '雪音りうプロジェクトのオリジナル缶バッジ。ぷっくりかわいいゆきもちデザイン。推し活にぴったり！44mmサイズ。 ※画像はイメージです',
-    tags: ['44mm', '缶バッジ', 'New', 'JPYC対応'],
+    tags: ['44mm', '缶バッジ', 'JPYC対応'],
   },
   {
     id: 'badge-riu',
     name: 'オリジナル缶バッジ（雪音りう）',
-    price: '¥500',
-    originalPrice: null,
+    jpycPrice: '¥450',
+    normalPrice: '¥500',
+    discount: '10%',
     image: 'ff70d8c4-c4ae-4a15-97ca-309095ddbac3.png',
     badge: 'New!',
     badgeType: 'new',
+    badge2: 'JPYCで10%おトク',
+    badge2Type: 'sale',
     description: '雪音りうプロジェクトのオリジナル缶バッジ。雪音りうデザイン。推し活やコレクションに！44mmサイズ。 ※画像はイメージです',
-    tags: ['44mm', '缶バッジ', 'New', 'JPYC対応'],
+    tags: ['44mm', '缶バッジ', 'JPYC対応'],
   },
   {
     id: 'badge-set',
     name: 'オリジナル缶バッジ 全4種セット',
-    price: '¥1,800',
-    originalPrice: '¥2,000',
+    jpycPrice: '¥1,600',
+    normalPrice: '¥1,800',
+    discount: '11%',
     image: 'jhgsagd.png-noplice.png',
     badge: 'セット',
     badgeType: 'set',
+    badge2: 'JPYCで11%おトク',
+    badge2Type: 'sale',
     description: '全4種のオリジナル缶バッジをセットにしたお得パック！ヘアピン・ミミックワイバーン・ゆきもち・雪音りうの4デザイン。並べるとかわいい…！♡ カバンや小物のワンポイントにも◎ ※画像はイメージです',
     tags: ['44mm', 'お得セット', '全4種', 'JPYC対応'],
   },
@@ -117,12 +134,19 @@ function renderProducts() {
       badgeHTML += `<span class="product-card-badge badge-second ${badge2Class}">${product.badge2}</span>`;
     }
 
-    let priceHTML = '';
-    if (product.originalPrice) {
-      priceHTML = `<span class="price-original">${product.originalPrice}</span>${product.price}<span class="price-tax">（税込）</span>`;
-    } else {
-      priceHTML = `${product.price}<span class="price-tax">（税込）</span>`;
-    }
+    const priceHTML = `
+      <div class="price-jpyc-row">
+        <span class="price-jpyc-label">💰 JPYC</span>
+        <span class="price-jpyc-value">${product.jpycPrice}－</span>
+        <span class="price-tax">（税込）</span>
+        <span class="price-discount">（${product.discount}おトク）</span>
+      </div>
+      <div class="price-normal-row">
+        <span class="price-normal-label">通常価格</span>
+        <span class="price-normal-value">${product.normalPrice}</span>
+        <span class="price-tax">（税込）</span>
+      </div>
+    `;
 
     card.innerHTML = `
       <div class="product-card-image-wrap">
@@ -169,12 +193,19 @@ function openModal(product) {
   const overlay = document.getElementById('modal-overlay');
   const body = document.getElementById('modal-body');
 
-  let priceHTML = '';
-  if (product.originalPrice) {
-    priceHTML = `<span class="price-original">${product.originalPrice}</span>${product.price}<span class="price-tax">（税込）</span>`;
-  } else {
-    priceHTML = `${product.price}<span class="price-tax">（税込）</span>`;
-  }
+  const priceHTML = `
+    <div class="price-jpyc-row modal-jpyc-row">
+      <span class="price-jpyc-label">💰 JPYC</span>
+      <span class="price-jpyc-value">${product.jpycPrice}－</span>
+      <span class="price-tax">（税込）</span>
+      <span class="price-discount">（${product.discount}おトク）</span>
+    </div>
+    <div class="price-normal-row">
+      <span class="price-normal-label">通常価格</span>
+      <span class="price-normal-value">${product.normalPrice}</span>
+      <span class="price-tax">（税込）</span>
+    </div>
+  `;
 
   let tagsHTML = product.tags.map(tag => {
     const cls = tag === 'JPYC対応' ? 'modal-tag jpyc' : 'modal-tag';
@@ -262,6 +293,20 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+// ---- QR CODE OVERLAY ----
+function showQR() {
+  const overlay = document.getElementById('qr-overlay');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeQR(e) {
+  if (e && e.target !== e.currentTarget && !e.target.classList.contains('qr-close-btn')) return;
+  const overlay = document.getElementById('qr-overlay');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 // Close on backdrop click
 document.getElementById('modal-overlay').addEventListener('click', (e) => {
   if (e.target === e.currentTarget) {
@@ -271,7 +316,14 @@ document.getElementById('modal-overlay').addEventListener('click', (e) => {
 
 // Close on Escape
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
+  if (e.key === 'Escape') {
+    closeModal();
+    const qrOverlay = document.getElementById('qr-overlay');
+    if (qrOverlay) {
+      qrOverlay.classList.remove('active');
+    }
+    document.body.style.overflow = '';
+  }
 });
 
 // ---- GOOGLE FORM ----
