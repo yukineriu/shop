@@ -347,8 +347,9 @@ a {
 }
 
 .badge-sale {
-  background: linear-gradient(135deg, #ffd54f, #ffb300);
-  color: var(--dark);
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  color: #2e7d32;
+  border: 1px solid rgba(46, 125, 50, 0.2);
 }
 
 .badge-set {
